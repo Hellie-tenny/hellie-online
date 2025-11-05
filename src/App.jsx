@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { motion } from 'motion/react';
 import hellieImage from './assets/imgs/hellie.png'
 import pic1 from './assets/imgs/img1.jpg';
 import workflowScreenshot from './assets/imgs/workflow.png';
@@ -21,7 +22,13 @@ function App() {
         <h1 className="font-bold text-[2em]">Hellie<span className='text-[#F25C0C]'>.</span></h1>
       </nav>
 
-      <div className='p-4 h-[80vh] content-around flex md:flex-row flex-col-reverse'>
+      <motion.div
+        className='p-4 h-screen content-around flex md:flex-row flex-col-reverse'
+        initial={{ opacity: 0, y: 75 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: .5 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
 
         <div className='h-full flex justify-center flex-col flex-1'>
           <h2 className='text-[2em] font-bold'>
@@ -36,14 +43,20 @@ function App() {
           <img src={hellieImage} className='w-full flex-1' />
         </div>
 
-      </div>
+      </motion.div>
 
-      <div className='p-4 h-screen'>
+      <motion.div
+        className='p-4 h-screen'
+        initial={{ opacity: 0, y: 75 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: .5 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <h2 className='font-bold text-[2em]'>Who is Hellie?</h2>
 
         <div className='flex py-10 flex-col sm:flex-row'>
           <div className='flex-1'>
-            <img src={pic1} alt="setup" className='w-[90%]' />
+            <img src={pic1} alt="setup" className='w-[90%] rounded-md' />
           </div>
           <div className='flex-1 p-4'>
             <p className='text-2xl'>
@@ -53,9 +66,15 @@ function App() {
 
         </div>
 
-      </div>
+      </motion.div>
 
-      <div className='p-4 w-full justify-center flex flex-col'>
+      <motion.div
+        className='p-4 w-full justify-center flex flex-col'
+        initial={{ opacity: 0, y: 75 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: .5 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
 
         <h2 className='font-bold text-[2em]'>Recent Projects</h2>
 
@@ -94,19 +113,25 @@ function App() {
 
         <a href="" className='text-right text-[#233860] font-bold hover:text-[#F25C0C]'>Visit my full developer profile</a>
 
-      </div>
+      </motion.div>
 
-      <div className='p-4 h-screen bg-[#233860] flex items-center content-center'>
+      <motion.div
+        className='p-4 h-screen bg-[#233860] flex items-center content-center'
+        initial={{ opacity: 0, y: 75 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: .5 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <p className='text-[#E7FDF6] font-bold text-5xl align-text-center'>
           Wanna work with me? Don't hasitate to hit me up. Am always ready for a project
         </p>
-      </div>`
-      
+      </motion.div>`
+
       <footer className='p-4 bg-black'>
         <span className='block text-[#E7FDF6] font-bold text-2xl'>Hellie<span className='text-[#F25C0C]'>.</span></span>
-        <FaFacebook className='text-[#E7FDF6] my-5 mr-5 inline'/>
-        <IoMailUnreadSharp className='text-[#E7FDF6] my-5 mr-5 inline'/>
-        <BsTwitterX className='text-[#E7FDF6] my-5 mr-5 inline'/>
+        <FaFacebook className='text-[#E7FDF6] my-5 mr-5 inline' />
+        <IoMailUnreadSharp className='text-[#E7FDF6] my-5 mr-5 inline' />
+        <BsTwitterX className='text-[#E7FDF6] my-5 mr-5 inline' />
         <span className='block text-center text-[#E7FDF6]'>Powered By Rocket &copy; 2025</span>
         <div></div>
       </footer>
