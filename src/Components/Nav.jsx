@@ -24,7 +24,7 @@ const Nav = () => {
                 </li>
                 <li className='font-bold px-2 cursor-pointer hover:text-[#F25C0C]'>
                     <NavLink
-                    to="#"
+                    to="/Works"
                         className={({ isActive }) => isActive ? 'text-[#F25C0C]' : ""}
                     >
                         Works
@@ -32,7 +32,7 @@ const Nav = () => {
                 </li>
                 <li className='font-bold px-2 cursor-pointer hover:text-[#F25C0C]'>
                     <NavLink
-                    to="#"
+                    to="/Contact"
                         className={({ isActive }) => isActive ? 'text-[#F25C0C]' : ""}
                     >
                         Contact

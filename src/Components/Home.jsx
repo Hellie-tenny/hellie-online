@@ -9,6 +9,7 @@ import img2 from '../assets/imgs/img2.png';
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
+import { NavLink } from 'react-router-dom';
 
 export default function Home() {
     return (
@@ -21,7 +22,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 75 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: .5 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: true }}
             >
 
                 <div className='h-full flex justify-center flex-col flex-1'>
@@ -30,7 +31,12 @@ export default function Home() {
                         My name is <span className='text-[#F25C0C]'>Hellings</span>. <br />
                         Welcome to my world <br />
                     </h2>
-                    <button className='bg-[#233860] text-[#E7FDF6] p-2 rounded-lg w-fit hover:bg-[#F25C0C] cursor-pointer'>Contact Me</button>
+                    <NavLink
+                        className='bg-[#233860] text-[#E7FDF6] p-2 rounded-lg w-fit hover:bg-[#F25C0C] cursor-pointer'
+                        to="/Contact"
+                    >
+                        Contact Me
+                    </NavLink>
                 </div>
 
                 <div className='h-full w-full flex-1'>

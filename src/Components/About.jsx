@@ -2,6 +2,7 @@ import React from 'react'
 import profilePic from '../assets/imgs/hellie-id.jpg'
 import Nav from './Nav'
 import Footer from './Footer'
+import { motion } from 'framer-motion';
 
 // light: "#E7FDF6",
 // accent: "#F25C0C",
@@ -13,7 +14,13 @@ export default function About() {
       <Nav />
       <div>
         {/* <h2 className='text-[2em] py-4 font-bold'>About Me</h2> */}
-        <div className='w-[50%] mx-auto p-4'>
+        <motion.div
+          className='sm:w-[50%] px-10 mx-auto p-4'
+          initial={{ opacity: 0, y: 75 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: .5 }}
+          viewport={{ once: true}}
+        >
 
           <img src={profilePic} alt="profile_pic" className='rounded-full h-32 w-32 mx-auto' />
           <h2 className='text-[2em] py-4 text-center'>Hellings Makondetsa</h2>
@@ -23,9 +30,9 @@ export default function About() {
             <br />
             I am always willing to learn new things, and i enjoy a fun project.
           </p>
-        </div>
+        </motion.div>
       </div>
-    <Footer />
+      <Footer />
     </div>
   )
 }
