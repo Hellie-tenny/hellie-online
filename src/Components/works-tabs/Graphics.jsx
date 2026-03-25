@@ -23,48 +23,7 @@ export default function Graphics() {
       img: reportingTool,
       description: 'Organize tasks, deadlines, and deliverables for your team.',
     },
-    {
-      id: 3,
-      title: 'Design Gallery',
-      img: reportingTool,
-      description: 'Browse the latest UI/UX designs and inspiration.',
-    },
-    {
-      id: 4,
-      title: 'Marketing Analyzer',
-      img: reportingTool,
-      description: 'Evaluate campaign performance and customer engagement.',
-    },
-    {
-      id: 5,
-      title: 'Customer CRM',
-      img: reportingTool,
-      description: 'Manage client contacts, interactions, and feedback.',
-    },
-    {
-      id: 6,
-      title: 'Analytics Engine',
-      img: reportingTool,
-      description: 'Process large datasets and visualize trends.',
-    },
-    {
-      id: 7,
-      title: 'Content Scheduler',
-      img: reportingTool,
-      description: 'Plan and automate social media posts and blogs.',
-    },
-    {
-      id: 8,
-      title: 'Resource Tracker',
-      img: reportingTool,
-      description: 'Keep tabs on equipment, licenses, and inventory.',
-    },
-    {
-      id: 9,
-      title: 'Feedback Portal',
-      img: reportingTool,
-      description: 'Collect user feedback and feature requests easily.',
-    },
+    
   ];
 
   return (

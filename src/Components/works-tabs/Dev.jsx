@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // import webDev from ".../"
-import reportingTool from '../../assets/imgs/img2.png'
+import reportingTool from '../../assets/imgs/img2.png';
+import physicsLibraryScreenshot from '../../assets/imgs/physics-library.png';
 
 // #0000005d
 
@@ -13,56 +14,14 @@ export default function Dev() {
       id: 1,
       title: 'Sales Reporting Tool',
       img: reportingTool,
-      description: 'A dashboard for tracking sales figures and generating reports.',
+      description: 'A tool for preparing sales reports, do all the caluclations and provide a sales report ready for presentation.',
     },
     {
       id: 2,
-      title: 'Project Planner',
-      img: reportingTool,
-      description: 'Organize tasks, deadlines, and deliverables for your team.',
-    },
-    {
-      id: 3,
-      title: 'Design Gallery',
-      img: reportingTool,
-      description: 'Browse the latest UI/UX designs and inspiration.',
-    },
-    {
-      id: 4,
-      title: 'Marketing Analyzer',
-      img: reportingTool,
-      description: 'Evaluate campaign performance and customer engagement.',
-    },
-    {
-      id: 5,
-      title: 'Customer CRM',
-      img: reportingTool,
-      description: 'Manage client contacts, interactions, and feedback.',
-    },
-    {
-      id: 6,
-      title: 'Analytics Engine',
-      img: reportingTool,
-      description: 'Process large datasets and visualize trends.',
-    },
-    {
-      id: 7,
-      title: 'Content Scheduler',
-      img: reportingTool,
-      description: 'Plan and automate social media posts and blogs.',
-    },
-    {
-      id: 8,
-      title: 'Resource Tracker',
-      img: reportingTool,
-      description: 'Keep tabs on equipment, licenses, and inventory.',
-    },
-    {
-      id: 9,
-      title: 'Feedback Portal',
-      img: reportingTool,
-      description: 'Collect user feedback and feature requests easily.',
-    },
+      title: 'Library',
+      img: physicsLibraryScreenshot,
+      description: 'A platform for providing study material to our fellow students during our time at Chancellor College, Physics department',
+    }
   ];
 
   const openModal = (card) => {
@@ -78,7 +37,7 @@ export default function Dev() {
           className='h-fit p-4 m-2 bg-[#233860] rounded-md cursor-pointer'
           onClick={() => openModal(card)}
         >
-          <img src={card.img} />
+          <img src={card.img} className='h-[10em]' />
           <h2 className='font-bold text-[#E7FDF6] my-2'>{card.title}</h2>
         </div>
       ))}
