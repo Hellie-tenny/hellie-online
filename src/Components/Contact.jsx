@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Nav from './Nav'
 import emailjs from '@emailjs/browser'
+import contactpng from '../assets/imgs/contact.png'
 
 export default function Contact() {
 
@@ -26,9 +27,10 @@ export default function Contact() {
 
     emailjs.send(serviceId, templateId, templateParams, publicKey)
     .then((respose) => {
-      console.log("Message sent successifully!");
+      alert("Message sent successifully!");
       setName("");
       setMessage("");
+      setEmail("");
     })
 
   }
@@ -39,6 +41,7 @@ export default function Contact() {
 
       <div className='sm:flex w-full h-[80%] p-4'>
         <div className='sm:h-full flex-1'>
+          <img src={contactpng} alt="contact us" />
           <h1 className='font-bold text-2xl'>Say Hi!</h1>
           <p>
             Feel free to contact me. I'm always happy for an adventure.
