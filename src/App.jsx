@@ -1,26 +1,18 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css'
-import Home from './Components/Home';
-import About from './Components/About';
-import Works from './Components/Works'
-import Contact from './Components/Contact';
+import './App.css';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import About from './components/About'
 
 function App() {
-
-  // light: "#E7FDF6",
-  // accent: "#F25C0C",
-  // dark: "#233860"
-
-  return ( 
-    <div className="">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Works" element={<Works />} />
-        <Route path="/Contact" element={<Contact />} />
-      </Routes>
+  return (
+    <div className="min-h-screen scroll-smooth text-[#233860]">
+      <Nav />
+      <Home />
+      <About />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

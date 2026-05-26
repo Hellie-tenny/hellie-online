@@ -1,38 +1,33 @@
-import React from 'react'
-import profilePic from '../assets/imgs/hellie-id.jpg'
-import Nav from './Nav'
-import Footer from './Footer'
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import profilePic from '../assets/imgs/hellie.png'
+const MotionDiv = motion.div;
 
-// light: "#E7FDF6",
-// accent: "#F25C0C",
-// dark: "#233860"
-
-export default function About() {
+function About() {
   return (
-    <div className='bg-[#E7FDF6] h-screen'>
-      <Nav />
-      <div>
-        {/* <h2 className='text-[2em] py-4 font-bold'>About Me</h2> */}
-        <motion.div
-          className='sm:w-[50%] px-10 mx-auto p-4'
-          initial={{ opacity: 0, y: 75 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .5 }}
-          viewport={{ once: true}}
-        >
-
-          <img src={profilePic} alt="profile_pic" className='rounded-full h-32 w-32 mx-auto' />
-          <h2 className='text-[2em] py-4 text-center'>Hellings Makondetsa</h2>
-          <p>
-            Hellings Makondetsa is a Tech Enthusiast whose interests are in numerous tech concepts.Hellie strives to solve world's problems with tech. Hellie was first introduced to coding in 2018, and since then, he has been obsessed with tech.
+    <section id="about" className="scroll-mt-28 bg-[#E7FDF6] px-2 py-24 sm:px-6 lg:px-8">
+      <MotionDiv
+        className="grid max-w-5xl items-center gap-10 rounded-lg  sm:p-10 md:grid-cols-[0.75fr_1.25fr]"
+        initial={{ opacity: 0, y: 75 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="">
+        <img src={profilePic} alt="hellie" />
+        </div>
+        <div>
+          <h2 className="pb-4 text-4xl font-black text-[#233860]">Hellings Makondetsa</h2>
+          <p className="text-lg leading-8 text-[#233860]/90">
+            Hellings Makondetsa is a Tech Enthusiast whose interests are in numerous tech concepts. Hellie strives to solve
+            world&apos;s problems with tech. Hellie was first introduced to coding in 2018, and since then, he has been
+            obsessed with tech.
             <br />
-            <br />
-            I am always willing to learn new things, and i enjoy a fun project.
+            <br />I am always willing to learn new things, and I enjoy a fun project.
           </p>
-        </motion.div>
-      </div>
-      <Footer />
-    </div>
-  )
+        </div>
+      </MotionDiv>
+    </section>
+  );
 }
+
+export default About;
