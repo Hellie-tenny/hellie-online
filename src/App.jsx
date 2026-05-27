@@ -2,7 +2,9 @@ import './App.css';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Home from './components/Home';
-import About from './components/About'
+import About from './components/About';
+import Works from './components/Works';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Nav />
       <Home />
       <About />
+      <Works />
+      <Contact />
       <Footer />
     </div>
   );

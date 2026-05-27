@@ -35,7 +35,7 @@ function Nav() {
   }, []);
 
   return (
-    <header className="sticky top-0">
+    <header className="sticky top-0 bg-white z-10 w-full">
       <nav className="flex justify-between p-4">
         <a
           href="#home"
@@ -53,8 +53,8 @@ function Nav() {
                 <a
                   href={item.href}
                   onClick={() => setActiveLink(item.href)}
-                  className={`block rounded-md px-3 py-2 text-center text-sm font-bold transition ${
-                    isActive ? ' text-[#F25C0C] shadow-sm' : 'text-[#233860] hover:bg-[#E7FDF6]'
+                  className={`block px-1 py-1 text-center text-sm font-bold transition ${
+                    isActive ? ' text-[#F25C0C]' : 'text-[#233860] hover:text-[#F25C0C]'
                   }`}
                 >
                   {item.label}
