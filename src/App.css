@@ -1,1 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background-color: #F25C0C;
+  color: #E7FDF6;
+}
+
+:focus-visible {
+  outline: 2px solid #F25C0C;
+  outline-offset: 2px;
+}

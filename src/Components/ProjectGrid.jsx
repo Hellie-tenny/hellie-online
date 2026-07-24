@@ -1,43 +1,78 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function ProjectGrid({ projects, variant = 'dark' }) {
-  const [selectedProject, setSelectedProject] = useState(null);
+function ProjectGrid({ projects, expandable = false }) {
+  const [expandedProject, setExpandedProject] = useState(null);
+
+  useEffect(() => {
+    if (!expandedProject) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setExpandedProject(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [expandedProject]);
 
   return (
-    <div className="relative grid grid-cols-1 gap-2 py-4 sm:grid-cols-4">
-      {projects.map((project) => (
-        <button
-          key={project.id}
-          type="button"
-          className={`m-2 h-fit cursor-pointer rounded-md p-4 text-left shadow-md ${
-            variant === 'dark' ? 'bg-[#233860]' : 'bg-white'
-          }`}
-          onClick={() => setSelectedProject(project)}
-        >
-          <img src={project.img} alt={project.title} className="h-40 w-full rounded object-cover" />
-          <h3 className={`my-2 font-bold ${variant === 'dark' ? 'text-[#E7FDF6]' : 'text-[#233860]'}`}>
-            {project.title}
-          </h3>
-        </button>
-      ))}
+    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {projects.map((project) => {
+        const isExpandTrigger = expandable && project.img;
+        const CardTag = isExpandTrigger ? 'button' : project.href ? 'a' : 'div';
 
-      {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0000005d] p-4">
-          <div className="relative flex min-h-[60%] w-full max-w-2xl flex-col items-center justify-center rounded-xl bg-[#E7FDF6] p-6">
-            <button
-              type="button"
-              className="absolute right-4 top-4 cursor-pointer text-2xl font-bold text-[#233860]"
-              onClick={() => setSelectedProject(null)}
-              aria-label="Close project details"
-            >
-              x
-            </button>
-            <img src={selectedProject.img} alt={selectedProject.title} className="mb-4 max-h-64 max-w-full rounded" />
-            <div className="p-4 text-center text-[#233860]">
-              <h3 className="mb-2 text-xl font-bold">{selectedProject.title}</h3>
-              <p>{selectedProject.description}</p>
+        return (
+          <CardTag
+            key={project.id}
+            type={CardTag === 'button' ? 'button' : undefined}
+            href={CardTag === 'a' ? project.href : undefined}
+            target={CardTag === 'a' ? '_blank' : undefined}
+            rel={CardTag === 'a' ? 'noopener noreferrer' : undefined}
+            className={`flex h-full flex-col overflow-hidden rounded-lg border border-[#233860]/10 bg-white text-left ${
+              isExpandTrigger || project.href ? 'cursor-pointer transition hover:border-[#F25C0C]/40' : ''
+            }`}
+            onClick={isExpandTrigger ? () => setExpandedProject(project) : undefined}
+          >
+            {project.img ? (
+              <img src={project.img} alt={project.title} className="h-32 w-full object-cover" />
+            ) : (
+              <div className="flex h-32 w-full items-center justify-center bg-[#233860]/5 text-sm text-[#233860]/40">
+                No image yet
+              </div>
+            )}
+            <div className="flex flex-1 flex-col p-3">
+              <h4 className="font-semibold text-[#233860]">{project.title}</h4>
+              <p className="mt-1 text-sm text-[#233860]/60">{project.description}</p>
+              {project.href && (
+                <span className="mt-auto inline-block pt-2 text-sm font-semibold text-[#F25C0C]">
+                  Visit project &rarr;
+                </span>
+              )}
             </div>
-          </div>
+          </CardTag>
+        );
+      })}
+
+      {expandedProject && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#233860]/80 p-4"
+          onClick={() => setExpandedProject(null)}
+        >
+          <button
+            type="button"
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white text-xl font-bold text-[#233860]"
+            onClick={() => setExpandedProject(null)}
+            aria-label="Close full image"
+          >
+            &times;
+          </button>
+          <img
+            src={expandedProject.img}
+            alt={expandedProject.title}
+            className="max-h-full max-w-full rounded-lg object-contain"
+            onClick={(event) => event.stopPropagation()}
+          />
         </div>
       )}
     </div>
