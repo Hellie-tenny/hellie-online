@@ -14,7 +14,6 @@ function About() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-[#F25C0C]">About</p>
         <h2 className="mb-4 text-3xl font-bold text-[#233860]">Hellings Makondetsa</h2>
         <p className="leading-7 text-[#233860]/80">
           Hellings Makondetsa is a Tech Enthusiast whose interests are in numerous tech concepts. Hellie strives to solve

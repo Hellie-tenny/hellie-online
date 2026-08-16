@@ -79,7 +79,6 @@ function Works() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-[#F25C0C]">Works</p>
         <h2 className="mb-10 text-3xl font-bold text-[#233860]">What I&apos;ve built</h2>
 
         <h3 className="mb-4 text-lg font-semibold text-[#233860]">Web</h3>

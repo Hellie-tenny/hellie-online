@@ -14,7 +14,7 @@ function Home() {
         viewport={{ once: true }}
       >
         <div>
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-[#F25C0C]">
+          <p className="text-3xl font-bold leading-tight text-[#233860]/60 sm:text-4xl">
             Frontend Developer &amp; Designer
           </p>
           <h1 className="text-4xl font-bold leading-tight text-[#233860] sm:text-5xl">

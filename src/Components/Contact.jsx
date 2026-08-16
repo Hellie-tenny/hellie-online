@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import emailjs from '@emailjs/browser';
+
+const MotionDiv = motion.div;
 
 function Contact() {
   const [name, setName] = useState('');
@@ -39,8 +42,13 @@ function Contact() {
 
   return (
     <section id="contact" className="scroll-mt-20 px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-md">
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-[#F25C0C]">Contact</p>
+      <MotionDiv
+        className="mx-auto max-w-md"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         <h2 className="mb-2 text-3xl font-bold text-[#233860]">Say hi</h2>
         <p className="mb-8 text-[#233860]/70">Feel free to reach out. I&apos;m always happy for an adventure.</p>
 
@@ -90,7 +98,7 @@ function Contact() {
             </p>
           )}
         </form>
-      </div>
+      </MotionDiv>
     </section>
   );
 }

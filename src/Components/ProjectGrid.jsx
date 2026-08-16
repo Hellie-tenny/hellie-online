@@ -1,4 +1,11 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
+
+const MotionCardTag = {
+  a: motion.a,
+  button: motion.button,
+  div: motion.div,
+};
 
 function ProjectGrid({ projects, expandable = false }) {
   const [expandedProject, setExpandedProject] = useState(null);
@@ -18,17 +25,22 @@ function ProjectGrid({ projects, expandable = false }) {
 
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {projects.map((project) => {
+      {projects.map((project, index) => {
         const isExpandTrigger = expandable && project.img;
-        const CardTag = isExpandTrigger ? 'button' : project.href ? 'a' : 'div';
+        const cardType = isExpandTrigger ? 'button' : project.href ? 'a' : 'div';
+        const CardTag = MotionCardTag[cardType];
 
         return (
           <CardTag
             key={project.id}
-            type={CardTag === 'button' ? 'button' : undefined}
-            href={CardTag === 'a' ? project.href : undefined}
-            target={CardTag === 'a' ? '_blank' : undefined}
-            rel={CardTag === 'a' ? 'noopener noreferrer' : undefined}
+            type={cardType === 'button' ? 'button' : undefined}
+            href={cardType === 'a' ? project.href : undefined}
+            target={cardType === 'a' ? '_blank' : undefined}
+            rel={cardType === 'a' ? 'noopener noreferrer' : undefined}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: (index % 4) * 0.08 }}
+            viewport={{ once: true, amount: 0.3 }}
             className={`flex h-full flex-col overflow-hidden rounded-lg border border-[#233860]/10 bg-white text-left ${
               isExpandTrigger || project.href ? 'cursor-pointer transition hover:border-[#F25C0C]/40' : ''
             }`}

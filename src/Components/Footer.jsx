@@ -1,6 +1,9 @@
+import { motion } from 'motion/react';
 import { BsTwitterX } from 'react-icons/bs';
 import { FaFacebook, FaGithub } from 'react-icons/fa';
 import { IoMailUnreadSharp } from 'react-icons/io5';
+
+const MotionFooter = motion.footer;
 
 const socialLinks = [
   { label: 'Facebook', href: 'https://www.facebook.com/iamhellie/', icon: FaFacebook },
@@ -18,7 +21,13 @@ const siteMapLinks = [
 
 function Footer() {
   return (
-    <footer className="mx-4 mb-4 overflow-hidden rounded-3xl bg-[#233860] sm:mx-6 lg:mx-8">
+    <MotionFooter
+      className="mx-4 mb-4 overflow-hidden rounded-3xl bg-[#233860] sm:mx-6 lg:mx-8"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <div className="mx-auto flex max-w-5xl flex-col gap-12 px-6 py-16 sm:px-8 md:flex-row md:justify-between lg:px-10">
         <div className="flex max-w-sm flex-col gap-6">
           <a href="#home" className="text-2xl font-bold text-[#E7FDF6]">
@@ -62,10 +71,10 @@ function Footer() {
         </div>
       </div>
 
-      <div className="bg-[#F25C0C] px-6 py-3 text-center text-xs font-medium text-[#233860] sm:px-8 lg:px-10">
+      <div className="bg-[#233860] px-6 py-3 text-center text-xs font-medium text-[#E7FDF6]/60 sm:px-8 lg:px-10">
         &copy; {new Date().getFullYear()} Hellings Makondetsa. All Rights Reserved.
       </div>
-    </footer>
+    </MotionFooter>
   );
 }
 
