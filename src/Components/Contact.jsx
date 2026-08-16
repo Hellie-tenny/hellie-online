@@ -31,7 +31,8 @@ function Contact() {
         setMessage('');
         setEmail('');
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error('EmailJS error:', error);
         setStatus('error');
       });
   };
